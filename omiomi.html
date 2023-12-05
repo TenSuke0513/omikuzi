@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>おみくじん</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #result {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        #drawButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>おみくじ</h1>
+
+    <p id="result">おみくじの結果</p>
+
+    <button id="drawButton" onclick="drawFortune()">引く</button>
+
+    <script>
+        function drawFortune() {
+            // おみくじの結果をランダムに選ぶ
+            const rand = Math.random();
+            // 0~1の数値をランダムで生成して割合作成。合ってる？
+            let fortuneResult;
+
+            if (rand < 0.10) {
+                fortuneResult = "大吉";
+            } else if (rand < 0.45) {
+                fortuneResult = "中吉";
+            } else if (rand < 0.80) {
+                fortuneResult = "小吉";
+            } else {
+                fortuneResult = "凶";
+            }
+
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `結果: ${fortuneResult}`;
+        }
+    </script>
+
+</body>
+</html>
